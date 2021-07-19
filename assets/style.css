@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+body {
+  background-color: #e2f8ff;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+section {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  margin: 10px;
+  width: 50%;
+  font-size: 1.2rem;
+}
+
+#answers button {
+  margin: 10px;
+}
+
+#showAnswer {
+  margin: 10px;
+}
+
+#gamesPlay button {
+  margin: 10px;
+  font-size: 1.5rem;
+}
