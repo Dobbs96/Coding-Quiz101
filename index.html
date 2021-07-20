@@ -9,29 +9,40 @@
     <title>Coding Quiz</title>
   </head>
   <body>
-    <div class="remove">
+    <div>
       <header><h1>Coding Quiz 101</h1></header>
       <section>
-        <h2>High Scores</h2>
-        <h2>30 Seconds</h2>
+        <h2><a href="#">High Scores</a></h2>
+        <h2 id="timer">50 Seconds</h2>
       </section>
       <main>
         <h3 id="question">Question</h3>
         <div id="container">
           <div id="answers">
-            <button class="answer">Answer 1</button>
-            <button class="answer">Answer 2</button>
-            <button class="answer">Answer 3</button>
-            <button class="answer">Answer 4</button>
+            <div class="answerContainer">
+              <button>Answer 1</button><span class="answer1"></span>
+            </div>
+            <div class="answerContainer">
+              <button>Answer 2</button><span class="answer2"></span>
+            </div>
+            <div class="answerContainer">
+              <button>Answer 3</button><span class="answer3"></span>
+            </div>
+            <div class="answerContainer">
+              <button>Answer 4</button><span class="answer4"></span>
+            </div>
           </div>
-          <div id="showAnswer hide">Correct/Wrong</div>
+          <div id="showAnswer" class="hide">Correct/Wrong</div>
           <div id="gamesPlay">
             <button id="start">Start</button>
-            <button id="submit hide">Submit</button>
-            <button id="reset hide">Restart</button>
+            <button id="submit" class="hide">Submit</button>
+            <button id="reset" class="hide">Restart</button>
           </div>
         </div>
       </main>
+    </div>
+    <div class="hide">
+      <p class="highScore">James scored ...</p>
     </div>
     <script src="./assets/script.js"></script>
   </body>

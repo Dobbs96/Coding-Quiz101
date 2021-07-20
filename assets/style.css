@@ -40,7 +40,7 @@ main h3 {
   align-items: flex-start;
   padding: 10px;
   margin: 10px;
-  width: 57%;
+  width: 60%;
   font-size: 1.2rem;
 }
 
@@ -71,4 +71,8 @@ main h3 {
   box-shadow: inset 0px 0px 0px 2px #0047cc;
   border-radius: 16px;
   padding: 5px;
+}
+
+.hide {
+  display: none;
 }
