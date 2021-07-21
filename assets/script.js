@@ -3,30 +3,86 @@ var highScore = document.querySelector("a");
 
 var question = document.querySelector("#question");
 
-var answerOne = document.querySelector("#answer1");
-var answerTwo = document.querySelector("#answer2");
-var answerThree = document.querySelector("#answer3");
-var answerFour = document.querySelector("#answer4");
-
 var solution = document.querySelector("#showAnswer");
 
 var resart = document.querySelector("#reset");
+var nextBtn = document.getElementById("next");
+
+var questionEl = document.getElementById("question");
+var answerEl = document.getElementById("answers");
 
 // Hide RESET / SUBMIT / Correct/Wrong
 // and UnHide
 function hide() {}
-var unHideAnswers1 = document.querySelector("#answerContainer1");
-var unHideAnswers2 = document.querySelector("#answerContainer2");
-var unHideAnswers3 = document.querySelector("#answerContainer3");
-var unHideAnswers4 = document.querySelector("#answerContainer4");
+var unHideAnswers1 = document.querySelector("#answer1");
+var unHideAnswers2 = document.querySelector("#answer2");
+var unHideAnswers3 = document.querySelector("#answer3");
+var unHideAnswers4 = document.querySelector("#answer4");
+var shuffleQuestions;
+var questionAnswers;
+var questionsIndex = 0;
 
 function startUnHide() {
   question.classList.remove("hide");
-  unHideAnswers1.classList.remove("hide");
-  unHideAnswers2.classList.remove("hide");
-  unHideAnswers3.classList.remove("hide");
-  unHideAnswers4.classList.remove("hide");
+  start.classList.add("hide");
+  shuffleQuestions = questions.sort(() => Math.random() - 0.5);
+
+  nextQuestion();
 }
+
+nextBtn.addEventListener("click", () => {
+  questionsIndex++;
+  console.log(questionsIndex);
+  nextQuestion;
+});
+function nextQuestion() {
+  resetQ();
+  showQuestion(shuffleQuestions[questionsIndex]);
+}
+
+function resetQ() {
+  while (answerEl.firstChild) {
+    answerEl.removeChild(answerEl.firstChild);
+  }
+}
+
+function showQuestion(question) {
+  questionEl.innerText = question.question;
+  question.choices.forEach((choices) => {
+    var button = document.createElement("button");
+    button.textContent = choices.text;
+    button.classList.add("btn");
+    if (choices.correct) {
+      button.dataset.correct = choices.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+    answerEl.appendChild(button);
+  });
+}
+
+function selectAnswer(e) {
+  var selectBtn = e.target;
+  var correct = selectBtn.dataset.correct;
+  setCorrect(document.body, correct);
+  Array.from(answerEl.children).forEach((button) => {
+    setCorrect(button, button.dataset.correct);
+  });
+}
+
+function setCorrect(element, correct) {
+  clearStatus(element);
+  if (correct) {
+    element.classList.add("correct");
+  } else {
+    element.classList.add("wrong");
+  }
+}
+
+function clearStatus(element) {
+  element.classList.remove("correct");
+  element.classList.remove("wrong");
+}
+
 // // start timer
 var timer = document.querySelector("#timer");
 var mainBody = document.querySelector("#main");
@@ -47,8 +103,10 @@ function startTimer() {
       // show score
       // add submit score
     }
-  }, 100);
+  }, 1000);
 }
+
+// // Show QUESTION
 
 // startGame
 var start = document.querySelector("#start");
@@ -57,8 +115,7 @@ start.addEventListener("click", function () {
   startUnHide();
   startTimer();
 });
-// // Show QUESTION
-// // Show ANSWERS
+// // choicesS
 
 // // Choice correct answer Green
 // // // Add points
@@ -84,66 +141,92 @@ var questions = [
   {
     question: "What does CSS stand for?",
     choices: [
-      "Cheat Sheet Style",
-      "Cascading Style Sheet",
-      "Cascading Sheet Stlye",
-      "Check Style Seed",
+      { text: "Cheat Sheet Style", correct: false },
+      { text: "Cascading Style Sheet", correct: true },
+      { text: "Cascading Sheet Stlye", correct: false },
+      { text: "Check Style Seed", correct: false },
     ],
-    answer: "Cascading Style Sheet",
   },
   {
     question: "When was HTML first version written?",
-    choices: ["1996", "2003", "1893", "1993"],
-    answer: "1993",
+    choices: [
+      { text: "1996", correct: false },
+      { text: "2003", correct: false },
+      { text: "1893", correct: false },
+      { text: "1993", correct: true },
+    ],
   },
   {
     question: "What does HTML stand for?",
     choices: [
-      "HyperSpace Travel More Luke",
-      "Hypertext Makeup Link",
-      "Hypertext Markup Language",
-      "How To Make Languages",
+      { text: "HyperSpace Travel More Luke", correct: false },
+      { text: "Hypertext Makeup Link", correct: false },
+      { text: "Hypertext Markup Language", correct: true },
+      { text: "How To Make Languages", correct: false },
     ],
-    answer: "Hypertext Markup Language",
   },
   {
     question: "What is JavaScript?",
-    choices: ["CheatSheet", "Programming Language", "It long for Java", "JS"],
+    choices: [
+      { text: "CheatSheet", correct: false },
+      { text: "Programming Language", correct: true },
+      { text: "It long for Java", correct: false },
+      { text: "JS", correct: false },
+    ],
     answer: "Programming Language",
   },
   {
     question: "Which is not part of display: property?",
-    choices: ["Flex", "Block", "Inline-flex", "Wrap"],
-    answer: "Wrap",
+    choices: [
+      { text: "Flex", correct: false },
+      { text: "Block", correct: false },
+      { text: "Inline-flex", correct: false },
+      { text: "Wrap", correct: true },
+    ],
   },
   {
     question: "What is not an element in HTML?",
-    choices: ["<base>", "<head>", "<body>", "<shoe>"],
-    answer: "<shoe>",
+    choices: [
+      { text: "<base>", correct: false },
+      { text: "<head>", correct: false },
+      { text: "<body>", correct: false },
+      { text: "<shoe>", correct: true },
+    ],
   },
   {
     question: "Which is not a CSS property?",
-    choices: ["c-index", "border", "background-repeat", "left"],
-    answer: "c-index",
+    choices: [
+      { text: "c-index", correct: true },
+      { text: "border", correct: false },
+      { text: "background-repeat", correct: false },
+      { text: "left", correct: false },
+    ],
   },
   {
     question: "Who create JavaScript?",
-    choices: ["Ben", "Yan Zhu", "Brendan Eich", "James Gosling"],
-    answer: "Brendan Eich",
+    choices: [
+      { text: "Ben", correct: false },
+      { text: "Yan Zhu", correct: false },
+      { text: "Brendan Eich", correct: true },
+      { text: "James Gosling", correct: false },
+    ],
   },
   {
     question: "What does Console.log('Hello World') do?",
     choices: [
-      "Prints Hello World in the body",
-      "Prints Hello World in sources",
-      "Prints Hello World in the console",
-      "Error",
+      { text: "Prints Hello World in the body", correct: false },
+      { text: "Prints Hello World in sources", correct: false },
+      { text: "Prints Hello World in the console", correct: true },
+      { text: "Error", correct: false },
     ],
-    answer: "Prints Hello World in the console.",
   },
   {
     question: "What does Console.log(2+'2') print",
-    choices: ["2+2", "22", "Error", "4"],
-    answer: "22",
+    choices: [
+      { text: "2+2", correct: false },
+      { text: "22", correct: true },
+      { text: "Error", correct: false },
+      { text: "4", correct: false },
+    ],
   },
 ];
