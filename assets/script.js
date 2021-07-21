@@ -33,7 +33,13 @@ function startUnHide() {
 nextBtn.addEventListener("click", () => {
   questionsIndex++;
   console.log(questionsIndex);
-  nextQuestion;
+  if (shuffleQuestions.length > questionsIndex + 1) {
+    nextBtn.classList.remove("hide");
+    resart.classList.remove("hide");
+  } else {
+    nextBtn.classList.add("hide");
+  }
+  nextQuestion();
 });
 function nextQuestion() {
   resetQ();
@@ -60,8 +66,8 @@ function showQuestion(question) {
   });
 }
 
-function selectAnswer(e) {
-  var selectBtn = e.target;
+function selectAnswer(a) {
+  var selectBtn = a.target;
   var correct = selectBtn.dataset.correct;
   setCorrect(document.body, correct);
   Array.from(answerEl.children).forEach((button) => {
