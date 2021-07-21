@@ -7,6 +7,11 @@ body {
   background-color: #e2f8ff;
 }
 
+a {
+  text-decoration: none;
+  color: #a17f1a;
+}
+
 h1 {
   text-align: center;
   font-size: 3rem;
@@ -53,6 +58,17 @@ main h3 {
   padding: 9px;
 }
 
+#reset2 {
+  margin: 10px;
+  background-color: #0059ff;
+  box-shadow: inset 0px 0px 0px 2px #0047cc;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 9px;
+  display: flex;
+  margin: auto;
+}
+
 #answers button:hover,
 #gamesPlay button:hover {
   background-color: #0059ffba;
@@ -71,6 +87,18 @@ main h3 {
   box-shadow: inset 0px 0px 0px 2px #0047cc;
   border-radius: 16px;
   padding: 5px;
+}
+
+#scoreBoard {
+  font-size: 2rem;
+  text-align: center;
+}
+.highScore {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: rgba(128, 128, 128, 0.26);
+  width: 50%;
+  margin: 1rem auto;
 }
 
 .hide {

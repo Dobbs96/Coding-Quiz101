@@ -9,40 +9,41 @@
     <title>Coding Quiz</title>
   </head>
   <body>
-    <div>
+    <div id="main">
       <header><h1>Coding Quiz 101</h1></header>
       <section>
         <h2><a href="#">High Scores</a></h2>
-        <h2 id="timer">50 Seconds</h2>
+        <h2>Time: <span id="timer">50</span></h2>
       </section>
       <main>
-        <h3 id="question">Question</h3>
+        <h3 id="question" class="hide">Question</h3>
         <div id="container">
           <div id="answers">
-            <div class="answerContainer">
-              <button>Answer 1</button><span class="answer1"></span>
+            <div id="answerContainer1" class="hide">
+              <button id="answer1">Answer 1</button>
             </div>
-            <div class="answerContainer">
-              <button>Answer 2</button><span class="answer2"></span>
+            <div id="answerContainer2" class="hide">
+              <button id="answer2">Answer 2</button>
             </div>
-            <div class="answerContainer">
-              <button>Answer 3</button><span class="answer3"></span>
+            <div id="answerContainer3" class="hide">
+              <button id="answer3">Answer 3</button>
             </div>
-            <div class="answerContainer">
-              <button>Answer 4</button><span class="answer4"></span>
+            <div id="answerContainer4" class="hide">
+              <button id="answer4">Answer 4</button>
             </div>
           </div>
           <div id="showAnswer" class="hide">Correct/Wrong</div>
           <div id="gamesPlay">
             <button id="start">Start</button>
-            <button id="submit" class="hide">Submit</button>
             <button id="reset" class="hide">Restart</button>
           </div>
         </div>
       </main>
     </div>
-    <div class="hide">
+    <div id="next" class="hide">
+      <h3 id="scoreBoard">HighScore</h3>
       <p class="highScore">James scored ...</p>
+      <button id="reset2">Restart</button>
     </div>
     <script src="./assets/script.js"></script>
   </body>

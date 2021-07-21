@@ -1,19 +1,84 @@
 // What is Global?
 var highScore = document.querySelector("a");
-var timer = document.querySelector("#timer");
 
 var question = document.querySelector("#question");
 
-var answerOne = document.querySelector(".answer1");
-var answerTwo = document.querySelector(".answer2");
-var answerThree = document.querySelector(".answer3");
-var answerFour = document.querySelector(".answer4");
+var answerOne = document.querySelector("#answer1");
+var answerTwo = document.querySelector("#answer2");
+var answerThree = document.querySelector("#answer3");
+var answerFour = document.querySelector("#answer4");
 
 var solution = document.querySelector("#showAnswer");
 
-var start = document.querySelector("#start");
-var submit = document.querySelector("#submit");
 var resart = document.querySelector("#reset");
+
+// Hide RESET / SUBMIT / Correct/Wrong
+// and UnHide
+function hide() {}
+var unHideAnswers1 = document.querySelector("#answerContainer1");
+var unHideAnswers2 = document.querySelector("#answerContainer2");
+var unHideAnswers3 = document.querySelector("#answerContainer3");
+var unHideAnswers4 = document.querySelector("#answerContainer4");
+
+function startUnHide() {
+  question.classList.remove("hide");
+  unHideAnswers1.classList.remove("hide");
+  unHideAnswers2.classList.remove("hide");
+  unHideAnswers3.classList.remove("hide");
+  unHideAnswers4.classList.remove("hide");
+}
+// // start timer
+var timer = document.querySelector("#timer");
+var mainBody = document.querySelector("#main");
+var nextBody = document.querySelector("#next");
+
+function startTimer() {
+  start.classList.add("hide");
+  var counter = 50;
+  var counterInterval = setInterval(function () {
+    counter--;
+    timer.textContent = counter;
+    if (counter === 0) {
+      clearInterval(counterInterval);
+      resart.classList.remove("hide");
+      mainBody.classList.add("hide");
+      nextBody.classList.remove("hide");
+
+      // show score
+      // add submit score
+    }
+  }, 100);
+}
+
+// startGame
+var start = document.querySelector("#start");
+// // listen 'click' START
+start.addEventListener("click", function () {
+  startUnHide();
+  startTimer();
+});
+// // Show QUESTION
+// // Show ANSWERS
+
+// // Choice correct answer Green
+// // // Add points
+// // // Show CORRECT! for 1 second
+// // // if more Next quetion
+// // // else show score
+
+// // Choice wrong answer Red
+// // // Minus time
+// // // Show WRONG! for 1 second
+// // // if more Next quetion
+// // // else show score
+
+// // // // Score 2pts a quetion + timeRemaining // // // //
+
+// StartGame
+
+// startTimer
+
+// // if more Next quetion
 
 var questions = [
   {
@@ -82,31 +147,3 @@ var questions = [
     answer: "22",
   },
 ];
-
-// Hide RESET / SUBMIT / Correct/Wrong
-
-// startGame
-// // listen 'click' START
-// // start timer
-// // Show QUESTION
-// // Show ANSWERS
-
-// // Choice correct answer Green
-// // // Add points
-// // // Show CORRECT! for 1 second
-// // // if more Next quetion
-// // // else show score
-
-// // Choice wrong answer Red
-// // // Minus time
-// // // Show WRONG! for 1 second
-// // // if more Next quetion
-// // // else show score
-
-// // // // Score 2pts a quetion + timeRemaining // // // //
-
-// StartGame
-
-// startTimer
-
-// // if more Next quetion
