@@ -5,7 +5,6 @@ var question = document.querySelector("#question");
 
 var solution = document.querySelector("#showAnswer");
 
-var resart = document.querySelector("#reset");
 var nextBtn = document.getElementById("next");
 
 var questionEl = document.getElementById("question");
@@ -81,7 +80,7 @@ function setCorrect(element, correct) {
     finalScore += 2;
   } else {
     element.classList.add("wrong");
-    counter -= 5;
+    counter -= 2;
   }
 }
 
@@ -89,7 +88,6 @@ function clearStatus(element) {
   element.classList.remove("correct");
   element.classList.remove("wrong");
 }
-
 var finalScore = 0;
 var counter = 50;
 
@@ -103,7 +101,7 @@ function startTimer() {
   var counterInterval = setInterval(function () {
     counter--;
     timer.textContent = counter;
-    if (counter < 0) {
+    if (counter <= 0) {
       clearInterval(counterInterval);
       mainBody.classList.add("hide");
       nextBody.classList.remove("hide");
@@ -124,7 +122,15 @@ start.addEventListener("click", function () {
   startUnHide();
   startTimer();
 });
-// // choicesS
+var resart = document.querySelector("#reset2");
+
+resart.addEventListener("click", function () {
+  mainBody.classList.remove("hide");
+  counter = 50;
+  finalScore = 0;
+  startUnHide();
+  startTimer();
+});
 
 // // Choice correct answer Green
 // // // Add points

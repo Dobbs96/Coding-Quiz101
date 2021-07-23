@@ -10,16 +10,16 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Accepted Criteria
 
-- [] Start button
-- [] Answer question
-  - [] Correct
-    - [] Add Score
-  - [] Wrong
-    - [] Subtracted time
-- [] Game over when
-  - [] All qutions answered
-  - [] Time runs out
+- [x] Start button
+- [x] Answer question
+  - [x] Correct
+    - [x] Add Score
+  - [x] Wrong
+    - [x] Subtracted time
+- [x] Game over when
+  - [x] All qutions answered
+  - [x] Time runs out
 - [] Save score
-- [] No Errors
+- [x] No Errors
 - [x] Posted
 - [x] Live URL
