@@ -78,8 +78,10 @@ function setCorrect(element, correct) {
   clearStatus(element);
   if (correct) {
     element.classList.add("correct");
+    finalScore += 2;
   } else {
     element.classList.add("wrong");
+    counter -= 5;
   }
 }
 
@@ -88,6 +90,9 @@ function clearStatus(element) {
   element.classList.remove("wrong");
 }
 
+var finalScore = 0;
+var counter = 50;
+
 // // start timer
 var timer = document.querySelector("#timer");
 var mainBody = document.querySelector("#main");
@@ -95,24 +100,24 @@ var nextBody = document.querySelector("#nextBody");
 console.log(nextBody);
 function startTimer() {
   start.classList.add("hide");
-  var counter = 50;
   var counterInterval = setInterval(function () {
     counter--;
     timer.textContent = counter;
-    if (counter === 0) {
+    if (counter < 0) {
       clearInterval(counterInterval);
       mainBody.classList.add("hide");
       nextBody.classList.remove("hide");
 
       // show score
+      var highScore = document.querySelector(".highScore");
+      highScore.innerHTML = `${userName} Final Score is ${finalScore}`;
       // add submit score
     }
-  }, 1000);
+  }, 100);
 }
-
 // // Show QUESTION
-
 // startGame
+const userName = prompt("What is your name?");
 var start = document.querySelector("#start");
 // // listen 'click' START
 start.addEventListener("click", function () {
