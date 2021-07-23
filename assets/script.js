@@ -32,14 +32,13 @@ function startUnHide() {
 
 nextBtn.addEventListener("click", () => {
   questionsIndex++;
-  console.log(questionsIndex);
+  nextQuestion();
   if (shuffleQuestions.length > questionsIndex + 1) {
     nextBtn.classList.remove("hide");
     resart.classList.remove("hide");
   } else {
     nextBtn.classList.add("hide");
   }
-  nextQuestion();
 });
 function nextQuestion() {
   resetQ();
@@ -66,8 +65,8 @@ function showQuestion(question) {
   });
 }
 
-function selectAnswer(a) {
-  var selectBtn = a.target;
+function selectAnswer(e) {
+  var selectBtn = e.target;
   var correct = selectBtn.dataset.correct;
   setCorrect(document.body, correct);
   Array.from(answerEl.children).forEach((button) => {
@@ -92,8 +91,8 @@ function clearStatus(element) {
 // // start timer
 var timer = document.querySelector("#timer");
 var mainBody = document.querySelector("#main");
-var nextBody = document.querySelector("#next");
-
+var nextBody = document.querySelector("#nextBody");
+console.log(nextBody);
 function startTimer() {
   start.classList.add("hide");
   var counter = 50;
@@ -102,7 +101,6 @@ function startTimer() {
     timer.textContent = counter;
     if (counter === 0) {
       clearInterval(counterInterval);
-      resart.classList.remove("hide");
       mainBody.classList.add("hide");
       nextBody.classList.remove("hide");
 
