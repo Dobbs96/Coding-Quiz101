@@ -113,7 +113,7 @@ function startTimer() {
       highScore.innerHTML = `${userName} Final Score is ${finalScore}`;
       // add submit score
     }
-  }, 100);
+  }, 1000);
 }
 // // Show QUESTION
 // startGame
