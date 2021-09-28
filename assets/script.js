@@ -76,7 +76,7 @@ function selectAnswer(e) {
 function setCorrect(element, correct) {
   clearStatus(element);
   if (correct) {
-    element.classList.add("correct");
+    element.classList.add("rightAnswer");
     finalScore += 2;
   } else {
     element.classList.add("wrong");
@@ -85,7 +85,8 @@ function setCorrect(element, correct) {
 }
 
 function clearStatus(element) {
-  element.classList.remove("correct");
+  console.log(element);
+  element.classList.remove("rightAnswer");
   element.classList.remove("wrong");
 }
 var finalScore = 0;
