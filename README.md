@@ -1,4 +1,4 @@
-# HW-3-Code-Quiz
+# Code-Quiz
 
 ## Story
 
